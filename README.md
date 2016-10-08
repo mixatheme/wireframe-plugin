@@ -4,7 +4,7 @@
 
 ***Clone it. Extend it. Sell it.***
 
-WP Wireframe Plugin (WPWFP) is an OOP boilerplate starter plugin for WordPress. WPWFP enables WordPress Developers to rapidly wire plugin features and release GPL and WPCS compliant plugins for professional client projects or for selling premium plugins in any marketplace. WPWFP can be forked as a standalone repo or as a submodule packaged with the Wireframe Suite for WordPress by ![MIXA Logo](https://avatars3.githubusercontent.com/u/16634291?v=3&s=16) [MixaTheme](https://github.com/mixatheme/wp-wireframe-plugin#about-mixatheme).
+WP Wireframe Plugin (WPWFP) is an OOP boilerplate starter plugin for WordPress. WPWFP enables WordPress Developers to rapidly wire plugin features and release GPL and WPCS compliant plugins for professional client projects or for selling premium plugins in any marketplace. WPWFP can be forked as a standalone repo or as a submodule packaged with the [Wireframe](https://github.com/mixatheme/Wireframe) suite for WordPress by ![MIXA Logo](https://avatars3.githubusercontent.com/u/16634291?v=3&s=16) [MixaTheme](https://mixatheme.com).
 
 --
 
@@ -119,7 +119,6 @@ Font Awesome is Copyright [David Gandy](https://github.com/FortAwesome/Font-Awes
 ## License
 
 Wireframe is licensed under GPL-3.0+ ( see [LICENSE](https://github.com/mixatheme/wp-wireframe-plugin/blob/master/LICENSE) )<br>
-Bootstrap is licensed under MIT. ( [GPL-compatible](https://github.com/twbs/bootstrap/issues/2054) )<br>
 Font Awesome font is licensed under SIL OFL 1.1, in aggregate. (  [GPL-compatible](https://make.wordpress.org/plugins/2013/05/01/font-awesome/) ).<br>
 Font Awesome code is licensed under MIT. (  [GPL-compatible](https://make.wordpress.org/plugins/2013/05/01/font-awesome/) ).<br>
 
