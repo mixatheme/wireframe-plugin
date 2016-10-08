@@ -183,9 +183,16 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Enqueue' ) ) :
 
 			// Loop JS files.
 			foreach ( $this->get_scripts() as $key => $value ) :
-
-				// Set handle.
-				$handle = $this->_prefix . '_' . $key;
+				/**
+				 * Set script handle and convert dashes to underscores.
+				 *
+				 * You must verify all references to this handle in your scripts
+				 * use underscores/underlines. Dashes/hyphens are not allowed
+				 * because JavaScript objects cannot contain dashes/hyphens.
+				 *
+				 * @see wpwfp.js
+				 */
+				$handle = str_replace( '-', '_', $this->_prefix . '_' . $key );
 
 				// Register.
 				wp_register_script(
