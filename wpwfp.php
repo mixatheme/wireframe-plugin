@@ -50,9 +50,7 @@ define( 'WPWFP_VERS', '0.0.1' );
 define( 'WPWFP_PRODUCT', 'WP Wireframe Plugin' );
 
 /**
- * Your `textdomain` slug for this package is used in various prefixes and
- * language translation strings. Generally, this is all one-word, lowercase.
- * If you need to separate words, using underscores vs dashes is recommended.
+ * Text-domain (must match slug).
  *
  * @since 0.0.1 WPWFP
  */
@@ -73,32 +71,25 @@ define( 'WPWFP_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WPWFP_URI', plugin_dir_url( __FILE__ ) );
 
 /**
- * Plugin development folder.
+ * Plugin developer folder.
  *
  * @since 0.0.1 WPWFP
  */
 define( 'WPWFP_DEV', WPWFP_DIR . 'wpwfp_dev/' );
 
 /**
- * Plugin include folder.
+ * Plugin modules folder.
  *
  * @since 0.0.1 WPWFP
  */
-define( 'WPWFP_INC', WPWFP_DIR . 'wpwfp_dev/inc/' );
-
-/**
- * Plugin library folder.
- *
- * @since 0.0.1 WPWFP
- */
-define( 'WPWFP_LIB', WPWFP_URI . 'wpwfp_dev/lib/' );
+define( 'WPWFP_INC', WPWFP_DIR . 'wpwfp_dev/modules/' );
 
 /**
  * Plugin templates folder.
  *
  * @since 0.0.1 WPWFP
  */
-define( 'WPWFP_TPL', WPWFP_DIR . 'wpwfp_dev/templates/' );
+define( 'WPWFP_TPL', WPWFP_DIR . 'wpwfp_client/tpl/' );
 
 /**
  * Plugin CSS folder.
@@ -112,7 +103,7 @@ define( 'WPWFP_CSS', WPWFP_URI . 'wpwfp_client/css/' );
  *
  * @since 0.0.1 WPWFP
  */
-define( 'WPWFP_IMG', WPWFP_URI . 'wpwfp_client/images/' );
+define( 'WPWFP_IMG', WPWFP_URI . 'wpwfp_client/img/' );
 
 /**
  * Plugin JavaScript folder.

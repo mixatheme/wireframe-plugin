@@ -35,10 +35,10 @@ function wpwfp_tpl_tabs() {
 	wpwfp_admin_check();
 	?>
 	<h2 class="nav-tab-wrapper wp-clearfix">
-		<a href="admin.php?page=wpwfp" class="nav-tab nav-tab-active">Landing</a>
-		<a href="admin.php?page=wpwfp-page2" class="nav-tab">Page 2</a>
-		<a href="admin.php?page=wpwfp-page3" class="nav-tab">Page 3</a>
-		<a href="admin.php?page=wpwfp-page4" class="nav-tab">Page 4</a>
+		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WPWFP_TEXTDOMAIN ) ); ?>" class="nav-tab nav-tab-active"><?php esc_html_e( 'Landing', 'wp-wireframe-plugin' ); ?></a>
+		<a href="<?php echo esc_url( 'admin.php?page=page2slug' ); ?>" class="nav-tab"><?php esc_html_e( 'Page 2', 'wp-wireframe-plugin' ); ?></a>
+		<a href="<?php echo esc_url( 'admin.php?page=page3slug' ); ?>" class="nav-tab"><?php esc_html_e( 'Page 3', 'wp-wireframe-plugin' ); ?></a>
+		<a href="<?php echo esc_url( 'admin.php?page=page4slug' ); ?>" class="nav-tab"><?php esc_html_e( 'Page 4', 'wp-wireframe-plugin' ); ?></a>
 	</h2>
 	<?php
 }
@@ -54,20 +54,20 @@ function wpwfp_view_quickstart() {
 	?>
 	<div class="wrap about-wrap">
 
-		<h1><?php echo WPWFP_PRODUCT; ?>&nbsp;<?php echo WPWFP_VERS; ?></h1>
+		<h1><?php echo esc_html( WPWFP_PRODUCT ); ?> <?php echo esc_html( WPWFP_VERS ); ?></h1>
 
 		<div class="about-text">
-			<?php esc_html_e( 'This is a brief plugin description.', 'wpwfp' ); ?>
+			<?php esc_html_e( 'This is a brief plugin description.', 'wp-wireframe-plugin' ); ?>
 		</div>
 		<div class="wp-badge">
-			Version <?php echo WPWFP_VERS; ?>
+			<?php esc_html_e( 'Version', 'wp-wireframe-plugin' ); ?> <?php echo esc_html( WPWFP_VERS ); ?>
 		</div>
 
 		<?php wpwfp_tpl_tabs(); ?>
 
-		<h3><?php esc_html_e( 'This is a landing page', 'wpwfp' ); ?></h3>
+		<h3><?php esc_html_e( 'This is a landing page', 'wp-wireframe-plugin' ); ?></h3>
 
-		<p><?php esc_html_e( 'You should arrive here after clicking the 1st tab or top-tier menu item.', 'wpwfp' ); ?></p>
+		<p><?php esc_html_e( 'You should arrive here after clicking the 1st tab or top-tier menu item.', 'wp-wireframe-plugin' ); ?></p>
 
 	</div>
 <?php
@@ -84,21 +84,21 @@ function wpwfp_view_sub2() {
 	?>
 	<div class="wrap about-wrap">
 
-		<h1><?php echo WPWFP_PRODUCT; ?>&nbsp;<?php echo WPWFP_VERS; ?></h1>
+		<h1><?php echo esc_html( WPWFP_PRODUCT ); ?>&nbsp;<?php echo esc_html( WPWFP_VERS ); ?></h1>
 
 		<div class="about-text">
-			<?php esc_html_e( 'This is a brief plugin description.', 'wpwfp' ); ?>
+			<?php esc_html_e( 'This is a brief plugin description.', 'wp-wireframe-plugin' ); ?>
 		</div>
 
 		<div class="wp-badge">
-			Version <?php echo WPWFP_VERS; ?>
+			<?php esc_html_e( 'Version', 'wp-wireframe-plugin' ); ?> <?php echo esc_html( WPWFP_VERS ); ?>
 		</div>
 
 		<?php wpwfp_tpl_tabs(); ?>
 
-		<h3><?php esc_html_e( 'The 2nd subpage', 'wpwfp' ); ?></h3>
+		<h3><?php esc_html_e( 'The 2nd subpage', 'wp-wireframe-plugin' ); ?></h3>
 
-		<p><?php esc_html_e( 'This is the 2nd tab (not the Landing page).', 'wpwfp' ); ?></p>
+		<p><?php esc_html_e( 'This is the 2nd tab (not the Landing page).', 'wp-wireframe-plugin' ); ?></p>
 
 	</div>
 <?php
@@ -115,21 +115,21 @@ function wpwfp_view_sub3() {
 	?>
 	<div class="wrap about-wrap">
 
-		<h1><?php echo WPWFP_PRODUCT; ?>&nbsp;<?php echo WPWFP_VERS; ?></h1>
+		<h1><?php echo esc_html( WPWFP_PRODUCT ); ?>&nbsp;<?php echo esc_html( WPWFP_VERS ); ?></h1>
 
 		<div class="about-text">
-			<?php esc_html_e( 'This is a brief plugin description.', 'wpwfp' ); ?>
+			<?php esc_html_e( 'This is a brief plugin description.', 'wp-wireframe-plugin' ); ?>
 		</div>
 
 		<div class="wp-badge">
-			Version <?php echo WPWFP_VERS; ?>
+			<?php esc_html_e( 'Version', 'wp-wireframe-plugin' ); ?> <?php echo esc_html( WPWFP_VERS ); ?>
 		</div>
 
 		<?php wpwfp_tpl_tabs(); ?>
 
-		<h3><?php esc_html_e( 'This is Subpage 3', 'wpwfp' ); ?></h3>
+		<h3><?php esc_html_e( 'This is Subpage 3', 'wp-wireframe-plugin' ); ?></h3>
 
-		<p><?php esc_html_e( 'This should appear after clicking the 3rd tab, yo.', 'wpwfp' ); ?></p>
+		<p><?php esc_html_e( 'This should appear after clicking the 3rd tab, yo.', 'wp-wireframe-plugin' ); ?></p>
 
 	</div>
 <?php
@@ -146,21 +146,21 @@ function wpwfp_view_sub4() {
 	?>
 	<div class="wrap about-wrap">
 
-		<h1><?php echo WPWFP_PRODUCT; ?>&nbsp;<?php echo WPWFP_VERS; ?></h1>
+		<h1><?php echo esc_html( WPWFP_PRODUCT ); ?>&nbsp;<?php echo esc_html( WPWFP_VERS ); ?></h1>
 
 		<div class="about-text">
-			<?php esc_html_e( 'This is a brief plugin description.', 'wpwfp' ); ?>
+			<?php esc_html_e( 'This is a brief plugin description.', 'wp-wireframe-plugin' ); ?>
 		</div>
 
 		<div class="wp-badge">
-			Version <?php echo WPWFP_VERS; ?>
+			<?php esc_html_e( 'Version', 'wp-wireframe-plugin' ); ?> <?php echo esc_html( WPWFP_VERS ); ?>
 		</div>
 
 		<?php wpwfp_tpl_tabs(); ?>
 
-		<h3><?php esc_html_e( 'Here we have the delicious subpage #4', 'wpwfp' ); ?></h3>
+		<h3><?php esc_html_e( 'Here we have the delicious subpage #4', 'wp-wireframe-plugin' ); ?></h3>
 
-		<p><?php esc_html_e( 'Clicking the 4th tab brings you here.', 'wpwfp' ); ?></p>
+		<p><?php esc_html_e( 'Clicking the 4th tab brings you here.', 'wp-wireframe-plugin' ); ?></p>
 
 	</div>
 <?php

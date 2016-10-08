@@ -43,9 +43,9 @@ function wpwfp_config_admin() {
 			'page_title' => 'WPWFP',
 			'menu_title' => 'WPWFP',
 			'capability' => 'manage_options',
-			'menu_slug'  => 'wpwfp',
+			'menu_slug'  => sanitize_title( WPWFP_TEXTDOMAIN ),
 			'callback'   => 'wpwfp_view_quickstart',
-			'icon_url'   => '',
+			'icon_url'   => esc_url( '' ),
 			'position'   => 9999,
 		),
 	);
@@ -58,27 +58,27 @@ function wpwfp_config_admin() {
 	 */
 	$submenu_pages = array(
 		'page2' => array(
-			'parent_slug' => 'wpwfp',
+			'parent_slug' => sanitize_title( WPWFP_TEXTDOMAIN ),
 			'page_title'  => 'Submenu Page 1',
 			'menu_title'  => 'Page 2',
 			'capability'  => 'manage_options',
-			'menu_slug'   => 'wpwfp-page2',
+			'menu_slug'   => sanitize_title( 'page2slug' ),
 			'callback'    => 'wpwfp_view_sub2',
 		),
 		'page3' => array(
-			'parent_slug' => 'wpwfp',
+			'parent_slug' => sanitize_title( WPWFP_TEXTDOMAIN ),
 			'page_title'  => 'Submenu Page 2',
 			'menu_title'  => 'Page 3',
 			'capability'  => 'manage_options',
-			'menu_slug'   => 'wpwfp-page3',
+			'menu_slug'   => sanitize_title( 'page3slug' ),
 			'callback'    => 'wpwfp_view_sub3',
 		),
 		'page4' => array(
-			'parent_slug' => 'wpwfp',
+			'parent_slug' => sanitize_title( WPWFP_TEXTDOMAIN ),
 			'page_title'  => 'Submenu Page 3',
 			'menu_title'  => 'Page 4',
 			'capability'  => 'manage_options',
-			'menu_slug'   => 'wpwfp-page4',
+			'menu_slug'   => sanitize_title( 'page4slug' ),
 			'callback'    => 'wpwfp_view_sub4',
 		),
 	);
