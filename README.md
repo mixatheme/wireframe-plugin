@@ -138,6 +138,9 @@ You should have received a copy of the GNU General Public License along with WPW
 
 *More free and commercial open-source software by MixaTheme...*
 
+### ![MIXA Logo](https://avatars3.githubusercontent.com/u/16634291?v=3&s=20)&nbsp;[WP Wireframe Theme](https://github.com/mixatheme/wp-wireframe-theme)
+WP Wireframe Theme (WPWFT) is an OOP boilerplate starter theme for WordPress. WPWFT enables WordPress Developers to rapidly wire theme features and release GPL and WPCS compliant themes for professional client projects or for selling premium themes in any marketplace. WPWFP can be forked as a standalone repo or as a submodule packaged with the Wireframe Suite for WordPress by MixaTheme. *Welcome to the wonderful world of smart themes by MixaTheme.*
+
 ### ![MIXA Logo](https://avatars3.githubusercontent.com/u/16634291?v=3&s=20)&nbsp;[Mainframe](https://mixatheme.com)
 Frustrated buying dozens of throwaway themes? Love Bootstrap, Foundation, HTML5 Boilerplate, Skeleton but wanna test drive Neat, Susy, Material UI, Unsemantic, Ink, Kube, Bulma, etc? Mainframe is our flagship smart theme for WordPress! Use any grid. Use any front-end framework. Use your creativity in one single theme. *Welcome to the wonderful world of smart themes by MixaTheme.*
 
