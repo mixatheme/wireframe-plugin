@@ -1,15 +1,16 @@
 <?php
 /**
- * MixaTheme WPWFP config.php file for WordPress themes.
+ * Admin config file for WPWFT.
  *
  * PHP version 5.6.0
  *
  * @package   WPWFP
  * @author    Tada Burke
  * @version   0.0.1 WPWFP
- * @copyright 2016 MixaTheme. All rights reserved.
+ * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
+ * @see       https://github.com/mixatheme/Wireframe
  *
  * WPWFP is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

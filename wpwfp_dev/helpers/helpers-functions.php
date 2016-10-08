@@ -1,13 +1,13 @@
 <?php
 /**
- * MixaTheme WPWFP helpers-functions.php file for WordPress themes.
+ * Default helper functions for WPWFT.
  *
  * PHP version 5.6.0
  *
  * @package   WPWFP
  * @author    Tada Burke
  * @version   0.0.1 WPWFP
- * @copyright 2016 MixaTheme. All rights reserved.
+ * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
  *

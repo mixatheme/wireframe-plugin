@@ -1,6 +1,6 @@
 <?php
 /**
- * MixaTheme WPWFP config.php file for WordPress themes.
+ * Enqueue config file for WPWFT.
  *
  * PHP version 5.6.0
  *
@@ -10,6 +10,7 @@
  * @copyright 2016 MixaTheme. All rights reserved.
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
+ * @see       https://github.com/mixatheme/Wireframe
  *
  * WPWFP is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

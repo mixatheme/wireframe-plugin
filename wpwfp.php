@@ -13,6 +13,7 @@
  *
  * @package   WPWFP
  * @copyright 2016 MixaTheme.
+ * @see       https://github.com/mixatheme/Wireframe
  */
 
 /**
