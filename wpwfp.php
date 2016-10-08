@@ -4,7 +4,7 @@
  * Plugin URI:  https://github.com/mixatheme/Wireframe
  * Description: WP Wireframe Plugin (WPWFP) is an OOP boilerplate starter plugin for WordPress. WPWFP enables WordPress Developers to rapidly wire plugin features and release GPL and WPCS compliant plugins for professional client projects or for selling premium plugins in any marketplace. WPWFP can be forked as a standalone repo or as a submodule packaged with the Wireframe Suite for WordPress by MixaTheme.
  * Version:     0.0.1
- * Text Domain: wpwfp
+ * Text Domain: wp-wireframe-plugin
  * Domain Path: /languages
  * Author:      MixaTheme, Tada Burke
  * Author URI:  https://mixatheme.com
@@ -56,7 +56,7 @@ define( 'WPWFP_PRODUCT', 'WP Wireframe Plugin' );
  *
  * @since 0.0.1 WPWFP
  */
-define( 'WPWFP_TEXTDOMAIN',	'wpwfp' );
+define( 'WPWFP_TEXTDOMAIN',	'wp-wireframe-plugin' );
 
 /**
  * Plugin path.
