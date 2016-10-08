@@ -39,7 +39,7 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 0.0.1 WPWFP
  */
-define( 'WPWFP_VERS', '1.0.0' );
+define( 'WPWFP_VERS', '0.0.1' );
 
 /**
  * Plugin product.
