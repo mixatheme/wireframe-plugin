@@ -1,0 +1,51 @@
+{
+    "name": "WPWFP",
+    "description": "WP Wireframe Plugin (WPWFP) is an OOP boilerplate starter plugin for WordPress. WPWFP enables WordPress Developers to rapidly wire plugin features and release GPL and WPCS compliant plugins for professional client projects or for selling premium plugins in any marketplace. WPWFP can be forked as a standalone repo or as a submodule packaged with the Wireframe Suite for WordPress by MixaTheme.",
+    "type": "wordpress-plugin",
+    "license": "GPL-3.0+",
+    "keywords": [
+        "wordpress",
+        "oop",
+        "wireframe",
+        "starter",
+        "boilerplate",
+        "mobile",
+        "plugin",
+        "GPL"
+    ],
+    "homepage": "https://github.com/mixatheme/Wireframe",
+    "authors": [
+        {
+            "name": "Tada Burke",
+            "email": "tadaburke@users.noreply.github.com",
+            "homepage": "https://github.com/mixatheme",
+            "role": "Developer"
+        },
+        {
+            "name": "MixaTheme",
+            "email": "mixatheme@users.noreply.github.com",
+            "homepage": "https://mixatheme.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Neurobotic",
+            "email": "neurobotic@users.noreply.github.com",
+            "homepage": "https://neurobotic.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/mixatheme/wp-wireframe-plugin/issues",
+        "source": "https://github.com/mixatheme/wp-wireframe-plugin",
+        "docs": "https://github.com/mixatheme/wp-wireframe-plugin/wiki"
+    },
+    "config": {
+        "vendor-dir": "wpwfp_dev/vendor",
+        "archive-format": "zip"
+    },
+    "autoload": {
+        "psr-4": {
+            "MixaTheme\\WPWFP\\": "wpwfp_dev/classes"
+        }
+    }
+}
