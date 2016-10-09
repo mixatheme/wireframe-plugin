@@ -12,6 +12,8 @@ WP Wireframe Plugin (WPWFP) is an OOP boilerplate starter plugin for WordPress. 
 
 [Status](https://github.com/mixatheme/wp-wireframe-plugin#status) | [Requirements](https://github.com/mixatheme/wp-wireframe-plugin#requirements) | [Features](https://github.com/mixatheme/wp-wireframe-plugin#features) | [Caveats](https://github.com/mixatheme/wp-wireframe-plugin#caveats) | [Support](https://github.com/mixatheme/wp-wireframe-plugin#support) | [Contributing](https://github.com/mixatheme/wp-wireframe-plugin#contributing)
 
+![Wireframe IDE](screenshot.png)
+
 --
 
 ## Status
