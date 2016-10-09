@@ -88,7 +88,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Admin' ) ) :
 		 * @param array  $config Required array of config variables.
 		 * @param object $hooks  Optionally DI action & filter hooks.
 		 */
-		public function __construct( $config, Hooks $hooks ) {
+		public function __construct( $config, Hooks $hooks = null ) {
 
 			// Config vars.
 			$this->_menu_pages    = $config['menu_pages'];

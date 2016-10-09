@@ -1,6 +1,6 @@
 <?php
 /**
- * Hooks dependency class for WPWFP.
+ * Shortcode dependency class for WPWFP.
  *
  * PHP version 5.6.0
  *
@@ -46,74 +46,41 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 0.0.1 WPWFP
  */
-if ( ! class_exists( 'MixaTheme\WPWFP\Hooks' ) ) :
+if ( ! class_exists( 'MixaTheme\WPWFP\Shortcode' ) ) :
 	/**
-	 * Hooks is a WordPress class for hooking actions & filters.
+	 * Shortcode is a WordPress class for theme/plugin specific content embeds.
 	 *
 	 * @since 0.0.1 WPWFP
 	 * @see   https://github.com/mixatheme/Wireframe
-	 * @todo  get_filters()
 	 */
-	class Hooks {
+	class Shortcode {
 		/**
-		 * Config.
+		 * Hooks object.
 		 *
-		 * @since 0.0.1 WPWFP
-		 * @var   array $_actions Description.
+		 * @access private
+		 * @since  0.0.1 WPWFP
+		 * @var    object $_hooks
 		 */
-		private $_enable_hooks;
-
-		/**
-		 * Actions.
-		 *
-		 * @since 0.0.1 WPWFP
-		 * @var   array $_actions Description.
-		 */
-		private $_actions;
-
-		/**
-		 * Filters.
-		 *
-		 * @since 0.0.1 WPWFP
-		 * @var   array $_filters Description.
-		 */
-		private $_filters;
+		private $_hooks;
 
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 0.0.1 WPWFP
-		 * @param array $config Configuration variables.
+		 * @param array  $config Required array of config variables.
+		 * @param object $hooks  Optionally DI action & filter hooks.
 		 */
-		public function __construct( $config ) {
+		public function __construct( $config, Hooks $hooks ) {
 
-			// Config variables.
-			$this->_enable_hooks = $config['enable_hooks'];
-			$this->_actions      = $config['actions'];
-			$this->_filters      = $config['filters'];
-		}
+			// Config vars.
+			$this->_hooks = $hooks;
 
-		/**
-		 * Get actions.
-		 *
-		 * @since 0.0.1 WPWFP
-		 * @param object $caller The object calling the hooks.
-		 */
-		public function get_actions( $caller ) {
-			if ( true == $this->_enable_hooks && $this->_actions ) {
-				foreach ( $this->_actions as $key => $value ) {
-					$value['priority'] = 10;
-					$value['args'] = null;
-					add_action(
-						$value['tag'],
-						array( $caller,$value['function'] ),
-						$value['priority'],
-						$value['args']
-					);
-				}
+			// Init hooks.
+			if ( $this->_hooks ) {
+				$this->_hooks->get_actions( $this );
 			}
 		}
 
-	} // Hooks class.
+	} // Shortcodes class.
 
 endif; // Thanks for using MixaTheme products!

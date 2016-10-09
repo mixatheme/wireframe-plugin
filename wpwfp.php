@@ -27,6 +27,8 @@ use MixaTheme\WPWFP\Plugin;
 use MixaTheme\WPWFP\Hooks;
 use MixaTheme\WPWFP\Admin;
 use MixaTheme\WPWFP\Enqueue;
+use MixaTheme\WPWFP\CPT;
+use MixaTheme\WPWFP\Shortcode;
 
 /**
  * No direct access to this file.
@@ -151,18 +153,6 @@ require_once WPWFP_DIR . 'wpwfp_dev/helpers/helpers-functions.php';
 require_once WPWFP_DIR . 'wpwfp_dev/helpers/helpers-views.php';
 
 /**
- * Configs.
- * =============================================================================
- *
- * Loads configuration variables for objects. Once you get the hang of
- * WPWFP, these files can probably be merged if desired.
- *
- * @since 0.0.1 WPWFP
- */
-require_once WPWFP_DIR . 'wpwfp_dev/config/config-admin.php';
-require_once WPWFP_DIR . 'wpwfp_dev/config/config-enqueue.php';
-
-/**
  * Container.
  * =========================================================================
  *
@@ -187,6 +177,17 @@ $wpwfp_container = new Container();
  */
 $wpwfp_container->plugin = function () {
 	/**
+	 * Loads configuration variables for objects. Once you get the hang of
+	 * WPWFP, these files can probably be merged if desired.
+	 *
+	 * @since 0.0.1 WPWFP
+	 */
+	require_once WPWFP_DIR . 'wpwfp_dev/config/config-cpt.php';
+	require_once WPWFP_DIR . 'wpwfp_dev/config/config-admin.php';
+	require_once WPWFP_DIR . 'wpwfp_dev/config/config-enqueue.php';
+	require_once WPWFP_DIR . 'wpwfp_dev/config/config-shortcode.php';
+
+	/**
 	 * Instantiates plugin object with dependency objects passed in. This is a
 	 * fun example showcasing OOP with DI and reusable configuration functions
 	 * passed through objects.
@@ -197,6 +198,7 @@ $wpwfp_container->plugin = function () {
 	 * @param object Enqueue
 	 */
 	return new Plugin(
+		new CPT( wpwfp_config_cpt(), new Hooks( wpwfp_config_cpt() ) ),
 		new Admin( wpwfp_config_admin(), new Hooks( wpwfp_config_admin() ) ),
 		new Enqueue( wpwfp_config_enqueue() )
 	);

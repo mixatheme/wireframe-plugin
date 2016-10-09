@@ -22,10 +22,12 @@ class ComposerStaticInit57846e7ab649cafee1cc9270db9aae3f
 
     public static $classMap = array (
         'MixaTheme\\WPWFP\\Admin' => __DIR__ . '/../../..' . '/wpwfp_dev/classes/class-admin.php',
+        'MixaTheme\\WPWFP\\CPT' => __DIR__ . '/../../..' . '/wpwfp_dev/classes/class-cpt.php',
         'MixaTheme\\WPWFP\\Container' => __DIR__ . '/../../..' . '/wpwfp_dev/classes/class-container.php',
         'MixaTheme\\WPWFP\\Enqueue' => __DIR__ . '/../../..' . '/wpwfp_dev/classes/class-enqueue.php',
         'MixaTheme\\WPWFP\\Hooks' => __DIR__ . '/../../..' . '/wpwfp_dev/classes/class-hooks.php',
         'MixaTheme\\WPWFP\\Plugin' => __DIR__ . '/../../..' . '/wpwfp_dev/classes/class-plugin.php',
+        'MixaTheme\\WPWFP\\Shortcode' => __DIR__ . '/../../..' . '/wpwfp_dev/classes/class-shortcode.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

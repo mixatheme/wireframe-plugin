@@ -56,6 +56,15 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 	 */
 	final class Plugin {
 		/**
+		 * CPT object.
+		 *
+		 * @access private
+		 * @since  0.0.1 WPWFP
+		 * @var    object $_cpt
+		 */
+		private $_cpt;
+
+		/**
 		 * Admin object.
 		 *
 		 * @access private
@@ -74,17 +83,43 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 		private $_enqueue;
 
 		/**
+		 * Shortcode object.
+		 *
+		 * @access private
+		 * @since  0.0.1 WPWFP
+		 * @var    object $_shortcode
+		 */
+		private $_shortcode;
+
+		/**
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 0.0.1 WPWFP
-		 * @param object $admin   Object for admin screens.
-		 * @param object $enqueue Object for styles & scripts.
+		 * @param object $cpt       Object for CPT.
+		 * @param object $admin     Object for admin screens.
+		 * @param object $enqueue   Object for styles & scripts.
+		 * @param object $shortcode Object for shortcodes.
 		 */
-		public function __construct( Admin $admin = null, Enqueue $enqueue = null ) {
+		public function __construct( CPT $cpt = null, Admin $admin = null, Enqueue $enqueue = null, Shortcode $shortcode = null ) {
 
 			// Config variables.
-			$this->_admin   = $admin;
-			$this->_enqueue = $enqueue;
+			$this->_cpt       = $cpt;
+			$this->_admin     = $admin;
+			$this->_enqueue   = $enqueue;
+			$this->_shortcode = $shortcode;
+		}
+
+		/**
+		 * Get cpt.
+		 *
+		 * @access private
+		 * @since  0.0.1 WPWFP
+		 * @return array
+		 */
+		private function _cpt() {
+			if ( $this->_cpt ) {
+				return $this->_cpt;
+			}
 		}
 
 		/**
@@ -110,6 +145,19 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 		private function _enqueue() {
 			if ( $this->_enqueue ) {
 				return $this->_enqueue;
+			}
+		}
+
+		/**
+		 * Get Shortcode.
+		 *
+		 * @access private
+		 * @since  0.0.1 WPWFP
+		 * @return array
+		 */
+		private function _shortcode() {
+			if ( $this->_shortcode ) {
+				return $this->_shortcode;
 			}
 		}
 

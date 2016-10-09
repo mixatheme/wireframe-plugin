@@ -1,6 +1,6 @@
 <?php
 /**
- * Hooks dependency class for WPWFP.
+ * CPT dependency class for WPWFP.
  *
  * PHP version 5.6.0
  *
@@ -46,74 +46,64 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 0.0.1 WPWFP
  */
-if ( ! class_exists( 'MixaTheme\WPWFP\Hooks' ) ) :
+if ( ! class_exists( 'MixaTheme\WPWFP\CPT' ) ) :
 	/**
-	 * Hooks is a WordPress class for hooking actions & filters.
+	 * CPT is a WordPress class for Custom Post Types.
 	 *
 	 * @since 0.0.1 WPWFP
 	 * @see   https://github.com/mixatheme/Wireframe
-	 * @todo  get_filters()
 	 */
-	class Hooks {
+	class CPT {
 		/**
 		 * Config.
 		 *
-		 * @since 0.0.1 WPWFP
-		 * @var   array $_actions Description.
+		 * @access private
+		 * @since  0.0.1 WPWFP
+		 * @var    array $_config
 		 */
-		private $_enable_hooks;
+		private $_config;
 
 		/**
-		 * Actions.
+		 * Hooks object.
 		 *
-		 * @since 0.0.1 WPWFP
-		 * @var   array $_actions Description.
+		 * @access private
+		 * @since  0.0.1 WPWFP
+		 * @var    object Hooks
 		 */
-		private $_actions;
-
-		/**
-		 * Filters.
-		 *
-		 * @since 0.0.1 WPWFP
-		 * @var   array $_filters Description.
-		 */
-		private $_filters;
+		private $_hooks;
 
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 0.0.1 WPWFP
-		 * @param array $config Configuration variables.
+		 * @param array  $config Required array of config variables.
+		 * @param object $hooks  Optionally DI action & filter hooks.
 		 */
-		public function __construct( $config ) {
+		public function __construct( $config, Hooks $hooks = null ) {
 
-			// Config variables.
-			$this->_enable_hooks = $config['enable_hooks'];
-			$this->_actions      = $config['actions'];
-			$this->_filters      = $config['filters'];
+			// Config vars.
+			$this->_config = $config;
+			$this->_hooks  = $hooks;
+
+			// Init hooks.
+			if ( $this->_hooks ) {
+				$this->_hooks->get_actions( $this );
+			}
 		}
 
 		/**
-		 * Get actions.
+		 * Get CPT.
 		 *
-		 * @since 0.0.1 WPWFP
-		 * @param object $caller The object calling the hooks.
+		 * @since  0.0.1 WPWFP
 		 */
-		public function get_actions( $caller ) {
-			if ( true == $this->_enable_hooks && $this->_actions ) {
-				foreach ( $this->_actions as $key => $value ) {
-					$value['priority'] = 10;
-					$value['args'] = null;
-					add_action(
-						$value['tag'],
-						array( $caller,$value['function'] ),
-						$value['priority'],
-						$value['args']
-					);
+		public function get_cpt() {
+			if ( $this->_config['args'] ) {
+				foreach ( $this->_config['args'] as $key => $value ) {
+					register_post_type( $key, $value );
 				}
 			}
 		}
 
-	} // Hooks class.
+	} // CPT class.
 
 endif; // Thanks for using MixaTheme products!

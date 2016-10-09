@@ -62,15 +62,6 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Enqueue' ) ) :
 		const VERS = '1.0.0';
 
 		/**
-		 * Component type.
-		 *
-		 * @access private
-		 * @since  0.0.1 WPWFP
-		 * @var    string $_type
-		 */
-		private $_type = 'base';
-
-		/**
 		 * Prefix for enqueue handles.
 		 *
 		 * @access private
@@ -216,7 +207,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Enqueue' ) ) :
 		}
 
 		/**
-		 * Get stylecss style.css.
+		 * Gets boolean for theme's default `style.css` stylesheet.
 		 *
 		 * @since  0.0.1 WPWFP
 		 * @return bool $_stylecss
@@ -229,7 +220,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Enqueue' ) ) :
 		}
 
 		/**
-		 * Get comment-reply script.
+		 * Gets boolean for WordPress default `comment-reply` script.
 		 *
 		 * @since  0.0.1 WPWFP
 		 * @return bool $_comments
@@ -242,7 +233,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Enqueue' ) ) :
 		}
 
 		/**
-		 * Get Media.
+		 * Gets boolean for WordPress built-in `media modal` script.
 		 *
 		 * @since  0.0.1 WPWFP
 		 * @return bool $_media
