@@ -6,7 +6,7 @@
  *
  * @package   WPWFP
  * @author    MixaTheme, Tada Burke
- * @version   0.0.1 WPWFP
+ * @version   1.0.0 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
@@ -30,7 +30,7 @@
 /**
  * Admin Check.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 function wpwfp_admin_check() {
 	if ( ! is_admin() ) {

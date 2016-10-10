@@ -6,7 +6,7 @@
  *
  * @package   WPWFP
  * @author    MixaTheme, Tada Burke
- * @version   0.0.1 WPWFP
+ * @version   1.0.0 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
@@ -30,13 +30,13 @@
 /**
  * Admin configuration defaults.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 function wpwfp_config_admin() {
 	/**
 	 * Enable or disable hooks.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   bool $enabled Default: false.
 	 */
 	$enabled = true;
@@ -44,7 +44,7 @@ function wpwfp_config_admin() {
 	/**
 	 * Prefix for handles.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   string $prefix Default: WPWFP_TEXTDOMAIN.
 	 */
 	$prefix = WPWFP_TEXTDOMAIN;
@@ -52,7 +52,7 @@ function wpwfp_config_admin() {
 	/**
 	 * Defaults.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $defaults Module defaults.
 	 */
 	$defaults = array();
@@ -60,7 +60,7 @@ function wpwfp_config_admin() {
 	/**
 	 * Top-level Admin pages.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $menu_pages
 	 */
 	$menu_pages = array(
@@ -78,7 +78,7 @@ function wpwfp_config_admin() {
 	/**
 	 * Submenu Admin pages.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $submenu_pages
 	 */
 	$submenu_pages = array(
@@ -111,7 +111,7 @@ function wpwfp_config_admin() {
 	/**
 	 * Actions to hook.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $actions Requires $enabled = true.
 	 */
 	$actions = array(
@@ -132,7 +132,7 @@ function wpwfp_config_admin() {
 	/**
 	 * Filters to hook.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $filters Requires $enabled = true.
 	 * @todo  WIP.
 	 */
@@ -141,7 +141,7 @@ function wpwfp_config_admin() {
 	/**
 	 * Returns an array with config values.
 	 *
-	 * @since  0.0.1 WPWFP
+	 * @since  1.0.0 WPWFP
 	 * @return array Config to be passed into an object.
 	 */
 	return array(

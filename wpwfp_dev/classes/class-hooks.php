@@ -6,7 +6,7 @@
  *
  * @package   WPWFP
  * @author    MixaTheme, Tada Burke
- * @version   0.0.1 WPWFP
+ * @version   1.0.0 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
@@ -31,27 +31,27 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 namespace MixaTheme\WPWFP;
 
 /**
  * No direct access to this file.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 if ( ! class_exists( 'MixaTheme\WPWFP\Hooks' ) ) :
 	/**
 	 * Hooks class for actions & filters.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @see   https://github.com/mixatheme/Wireframe
 	 * @todo  get_filters()
 	 */
@@ -59,7 +59,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Hooks' ) ) :
 		/**
 		 * Enable or disable hooks.
 		 *
-		 * @since 0.0.1 WPWFP
+		 * @since 1.0.0 WPWFP
 		 * @var   array $_actions Default: false.
 		 */
 		private $_enabled = false;
@@ -67,7 +67,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Hooks' ) ) :
 		/**
 		 * Actions to hook.
 		 *
-		 * @since 0.0.1 WPWFP
+		 * @since 1.0.0 WPWFP
 		 * @var   array $_actions Requires $enabled = true.
 		 */
 		private $_actions = array();
@@ -75,7 +75,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Hooks' ) ) :
 		/**
 		 * Filters to hook.
 		 *
-		 * @since 0.0.1 WPWFP
+		 * @since 1.0.0 WPWFP
 		 * @var   array $_filters Requires $enabled = true.
 		 */
 		private $_filters = array();
@@ -83,7 +83,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Hooks' ) ) :
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
-		 * @since 0.0.1 WPWFP
+		 * @since 1.0.0 WPWFP
 		 * @param array $config Configuration variables.
 		 */
 		public function __construct( $config ) {
@@ -97,7 +97,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Hooks' ) ) :
 		/**
 		 * Get actions.
 		 *
-		 * @since 0.0.1 WPWFP
+		 * @since 1.0.0 WPWFP
 		 * @param object $caller The object calling the hooks.
 		 */
 		public function get_actions( $caller ) {

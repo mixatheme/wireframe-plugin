@@ -6,7 +6,7 @@
  *
  * @package   WPWFP
  * @author    MixaTheme, Tada Burke
- * @version   0.0.1 WPWFP
+ * @version   1.0.0 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
@@ -30,7 +30,7 @@
 /**
  * Tabs.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  * @see   helpers-functions.php
  */
 function wpwfp_tpl_tabs() {
@@ -48,7 +48,7 @@ function wpwfp_tpl_tabs() {
 /**
  * Page 1: Landing.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  * @see   helpers-functions.php
  */
 function wpwfp_view_quickstart() {
@@ -78,7 +78,7 @@ function wpwfp_view_quickstart() {
 /**
  * Page 2: Example.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  * @see   helpers-functions.php
  */
 function wpwfp_view_sub2() {
@@ -109,7 +109,7 @@ function wpwfp_view_sub2() {
 /**
  * Page 3: Example.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  * @see   helpers-functions.php
  */
 function wpwfp_view_sub3() {
@@ -140,7 +140,7 @@ function wpwfp_view_sub3() {
 /**
  * Page 4: Example.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  * @see   helpers-functions.php
  */
 function wpwfp_view_sub4() {

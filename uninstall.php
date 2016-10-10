@@ -6,7 +6,7 @@
  *
  * @package   WPWFP
  * @author    Tada Burke
- * @version   0.0.1 WPWFP
+ * @version   1.0.0 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com

@@ -6,7 +6,7 @@
  *
  * @package   WPWFP
  * @author    MixaTheme, Tada Burke
- * @version   0.0.1 WPWFP
+ * @version   1.0.0 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
@@ -31,7 +31,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 namespace MixaTheme\WPWFP;
 use MixaTheme\WPWFP\Module\CPT;
@@ -39,20 +39,20 @@ use MixaTheme\WPWFP\Module\CPT;
 /**
  * No direct access to this file.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 	/**
 	 * Plugin class for DI plugin objects.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @see   object Theme
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -61,7 +61,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 		 * CPT object.
 		 *
 		 * @access private
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @var    object $_cpt
 		 */
 		private $_cpt;
@@ -70,7 +70,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 		 * Admin object.
 		 *
 		 * @access private
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @var    object $_admin
 		 */
 		private $_admin;
@@ -79,7 +79,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 		 * Enqueue object.
 		 *
 		 * @access private
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @var    object $_enqueue
 		 */
 		private $_enqueue;
@@ -88,7 +88,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 		 * Shortcode object.
 		 *
 		 * @access private
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @var    object $_shortcode
 		 */
 		private $_shortcode;
@@ -96,7 +96,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
-		 * @since 0.0.1 WPWFP
+		 * @since 1.0.0 WPWFP
 		 * @param object $cpt       Object for CPT.
 		 * @param object $admin     Object for admin screens.
 		 * @param object $enqueue   Object for styles & scripts.
@@ -115,7 +115,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 		 * Get cpt.
 		 *
 		 * @access private
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @return array
 		 */
 		private function _cpt() {
@@ -128,7 +128,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 		 * Get admin.
 		 *
 		 * @access private
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @return array
 		 */
 		private function _admin() {
@@ -141,7 +141,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 		 * Get Enqueue.
 		 *
 		 * @access private
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @return array
 		 */
 		private function _enqueue() {
@@ -154,7 +154,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 		 * Get Shortcode.
 		 *
 		 * @access private
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @return array
 		 */
 		private function _shortcode() {

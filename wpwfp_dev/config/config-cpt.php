@@ -6,7 +6,7 @@
  *
  * @package   WPWFP
  * @author    MixaTheme, Tada Burke
- * @version   0.0.1 WPWFP
+ * @version   1.0.0 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
@@ -30,13 +30,13 @@
 /**
  * CPT configuration defaults.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 function wpwfp_config_cpt() {
 	/**
 	 * Enable or disable hooks.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   bool $enabled Default: false.
 	 */
 	$enabled = false;
@@ -44,7 +44,7 @@ function wpwfp_config_cpt() {
 	/**
 	 * Prefix for handles.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   string $prefix Default: WPWFP_TEXTDOMAIN.
 	 */
 	$prefix = WPWFP_TEXTDOMAIN;
@@ -52,7 +52,7 @@ function wpwfp_config_cpt() {
 	/**
 	 * Labels.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $labels
 	 */
 	$labels = array(
@@ -88,7 +88,7 @@ function wpwfp_config_cpt() {
 	/**
 	 * Defaults.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $defaults Module defaults.
 	 */
 	 $defaults = array(
@@ -116,7 +116,7 @@ function wpwfp_config_cpt() {
 	/**
 	 * Actions to hook.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $actions Requires $enabled = true.
 	 */
 	$actions = array(
@@ -131,7 +131,7 @@ function wpwfp_config_cpt() {
 	/**
 	 * Filters to hook.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $filters Requires $enabled = true.
 	 * @todo  WIP.
 	 */
@@ -140,7 +140,7 @@ function wpwfp_config_cpt() {
 	/**
 	 * Returns an array with config values.
 	 *
-	 * @since  0.0.1 WPWFP
+	 * @since  1.0.0 WPWFP
 	 * @return array Config to be passed into an object.
 	 */
 	return array(

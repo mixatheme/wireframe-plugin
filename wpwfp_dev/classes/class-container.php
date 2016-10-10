@@ -6,7 +6,7 @@
  *
  * @package   WPWFP
  * @author    MixaTheme, Tada Burke
- * @version   0.0.1 WPWFP
+ * @version   1.0.0 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
@@ -31,21 +31,21 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 namespace MixaTheme\WPWFP;
 
 /**
  * No direct access to this file.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 if ( ! class_exists( 'MixaTheme\WPWFP\Container' ) ) :
 	/**
@@ -54,7 +54,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Container' ) ) :
 	 * Instantiates a new `service` closure. A getter or setter will run
 	 * determined by the requested service key.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @see   https://github.com/mixatheme/Wireframe
 	 *
 	 * @internal Thanks: Fabien Potencier
@@ -63,7 +63,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Container' ) ) :
 		/**
 		 * Storage array.
 		 *
-		 * @since 0.0.1 WPWFP
+		 * @since 1.0.0 WPWFP
 		 * @var   array $storage Array of services.
 		 */
 		protected $storage = array();
@@ -71,7 +71,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Container' ) ) :
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
-		 * @since 0.0.1 WPWFP
+		 * @since 1.0.0 WPWFP
 		 * @param string   $service  Service key.
 		 * @param callable $callback Service instance resolver.
 		 */
@@ -82,7 +82,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Container' ) ) :
 		/**
 		 * Get service from the Storage array.
 		 *
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @param  string $service Service key.
 		 * @return object $storage Instance closure.
 		 */

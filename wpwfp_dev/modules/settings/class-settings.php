@@ -6,7 +6,7 @@
  *
  * @package   WPWFP
  * @author    MixaTheme, Tada Burke
- * @version   0.0.1 WPWFP
+ * @version   1.0.0 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
@@ -34,7 +34,7 @@
  * Hooks object into scope and make it available to your class.
  *
  * @since 5.3.0 PHP
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 namespace MixaTheme\WPWFP\Module;
 use MixaTheme\WPWFP\Hooks;
@@ -42,20 +42,20 @@ use MixaTheme\WPWFP\Hooks;
 /**
  * No direct access to this file.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 if ( ! class_exists( 'MixaTheme\WPWFP\Module\Settings' ) ) :
 	/**
 	 * Settings is a WPWFP class.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	class Settings {
@@ -63,7 +63,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Module\Settings' ) ) :
 		 * Hooks object.
 		 *
 		 * @access private
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @var    object $_hooks
 		 */
 		private $_hooks;
@@ -71,7 +71,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Module\Settings' ) ) :
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
-		 * @since 0.0.1 WPWFP
+		 * @since 1.0.0 WPWFP
 		 * @param array  $config Required array of config variables.
 		 * @param object $hooks  Optionally DI action & filter hooks.
 		 */

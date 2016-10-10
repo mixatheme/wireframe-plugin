@@ -6,7 +6,7 @@
  *
  * @package   WPWFP
  * @author    MixaTheme, Tada Burke
- * @version   0.0.1 WPWFP
+ * @version   1.0.0 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
@@ -31,27 +31,27 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 namespace MixaTheme\WPWFP;
 
 /**
  * No direct access to this file.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 if ( ! class_exists( 'MixaTheme\WPWFP\Admin' ) ) :
 	/**
 	 * Admin class for loading Admin menu pages.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	final class Admin {
@@ -59,7 +59,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Admin' ) ) :
 		 * Top-level Menu pages.
 		 *
 		 * @access private
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @var    array $_menu_pages
 		 */
 		private $_menu_pages = array();
@@ -68,7 +68,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Admin' ) ) :
 		 * Submenu pages.
 		 *
 		 * @access private
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @var    array $_submenu_pages
 		 */
 		private $_submenu_pages = array();
@@ -77,7 +77,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Admin' ) ) :
 		 * Hooks object.
 		 *
 		 * @access private
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @var    object $_hooks
 		 */
 		private $_hooks;
@@ -85,7 +85,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Admin' ) ) :
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
-		 * @since 0.0.1 WPWFP
+		 * @since 1.0.0 WPWFP
 		 * @param array  $config Required array of config variables.
 		 * @param object $hooks  Optionally DI action & filter hooks.
 		 */
@@ -110,7 +110,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Admin' ) ) :
 		 * is hooked in to handle the output of the page must check that the
 		 * user has the required capability as well.
 		 *
-		 * @since 0.0.1 WPWFP
+		 * @since 1.0.0 WPWFP
 		 */
 		public function menu_pages() {
 			if ( $this->_menu_pages ) {
@@ -136,7 +136,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Admin' ) ) :
 		 * is hooked in to handle the output of the page must check that the
 		 * user has the required capability as well.
 		 *
-		 * @since 0.0.1 WPWFP
+		 * @since 1.0.0 WPWFP
 		 */
 		public function submenu_pages() {
 			if ( $this->_submenu_pages ) {

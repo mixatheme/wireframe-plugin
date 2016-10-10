@@ -6,7 +6,7 @@
  *
  * @package   WPWFP
  * @author    MixaTheme, Tada Burke
- * @version   0.0.1 WPWFP
+ * @version   1.0.0 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
@@ -30,13 +30,13 @@
 /**
  * Enqueue configuration defaults.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 function wpwfp_config_enqueue() {
 	/**
 	 * Enable or disable hooks.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   bool $enabled Default: false.
 	 */
 	$enabled = false;
@@ -44,7 +44,7 @@ function wpwfp_config_enqueue() {
 	/**
 	 * Prefix for handles.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   string $prefix Default: WPWFP_TEXTDOMAIN.
 	 */
 	$prefix = WPWFP_TEXTDOMAIN;
@@ -52,7 +52,7 @@ function wpwfp_config_enqueue() {
 	/**
 	 * Defaults.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $defaults Module defaults.
 	 */
 	$defaults = array();
@@ -60,7 +60,7 @@ function wpwfp_config_enqueue() {
 	/**
 	 * Styles.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $styles Module styles.
 	 */
 	$styles = array();
@@ -68,7 +68,7 @@ function wpwfp_config_enqueue() {
 	/**
 	 * Scripts.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $scripts Module scripts.
 	 */
 	$scripts = array();
@@ -76,7 +76,7 @@ function wpwfp_config_enqueue() {
 	/**
 	 * Media.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $media Module media.
 	 */
 	$media = false;
@@ -84,7 +84,7 @@ function wpwfp_config_enqueue() {
 	/**
 	 * Actions to hook.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $actions Requires $enabled = true.
 	 */
 	$actions = array();
@@ -92,7 +92,7 @@ function wpwfp_config_enqueue() {
 	/**
 	 * Filters to hook.
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @var   array $filters Requires $enabled = true.
 	 * @todo  WIP.
 	 */
@@ -101,7 +101,7 @@ function wpwfp_config_enqueue() {
 	/**
 	 * Returns an array with config values.
 	 *
-	 * @since  0.0.1 WPWFP
+	 * @since  1.0.0 WPWFP
 	 * @return array Config to be passed into an object.
 	 */
 	return array(
