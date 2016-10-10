@@ -9,11 +9,16 @@ class ComposerStaticInit57846e7ab649cafee1cc9270db9aae3f
     public static $prefixLengthsPsr4 = array (
         'M' => 
         array (
+            'MixaTheme\\WPWFP\\Module\\' => 23,
             'MixaTheme\\WPWFP\\' => 16,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'MixaTheme\\WPWFP\\Module\\' => 
+        array (
+            0 => __DIR__ . '/../../..' . '/wpwfp_dev/modules',
+        ),
         'MixaTheme\\WPWFP\\' => 
         array (
             0 => __DIR__ . '/../../..' . '/wpwfp_dev/classes',
@@ -22,12 +27,14 @@ class ComposerStaticInit57846e7ab649cafee1cc9270db9aae3f
 
     public static $classMap = array (
         'MixaTheme\\WPWFP\\Admin' => __DIR__ . '/../../..' . '/wpwfp_dev/classes/class-admin.php',
-        'MixaTheme\\WPWFP\\CPT' => __DIR__ . '/../../..' . '/wpwfp_dev/classes/class-cpt.php',
         'MixaTheme\\WPWFP\\Container' => __DIR__ . '/../../..' . '/wpwfp_dev/classes/class-container.php',
         'MixaTheme\\WPWFP\\Enqueue' => __DIR__ . '/../../..' . '/wpwfp_dev/classes/class-enqueue.php',
         'MixaTheme\\WPWFP\\Hooks' => __DIR__ . '/../../..' . '/wpwfp_dev/classes/class-hooks.php',
+        'MixaTheme\\WPWFP\\Module\\CPT' => __DIR__ . '/../../..' . '/wpwfp_dev/modules/cpt/class-cpt.php',
+        'MixaTheme\\WPWFP\\Module\\Options' => __DIR__ . '/../../..' . '/wpwfp_dev/modules/options/class-options.php',
+        'MixaTheme\\WPWFP\\Module\\Settings' => __DIR__ . '/../../..' . '/wpwfp_dev/modules/settings/class-settings.php',
+        'MixaTheme\\WPWFP\\Module\\Shortcode' => __DIR__ . '/../../..' . '/wpwfp_dev/modules/shortcode/class-shortcode.php',
         'MixaTheme\\WPWFP\\Plugin' => __DIR__ . '/../../..' . '/wpwfp_dev/classes/class-plugin.php',
-        'MixaTheme\\WPWFP\\Shortcode' => __DIR__ . '/../../..' . '/wpwfp_dev/classes/class-shortcode.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

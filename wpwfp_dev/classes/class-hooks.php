@@ -1,16 +1,17 @@
 <?php
 /**
- * Hooks dependency class for WPWFP.
+ * Hooks is a WP Wireframe Suite class packaged with WPWFP.
  *
  * PHP version 5.6.0
  *
  * @package   WPWFP
- * @author    Tada Burke
+ * @author    MixaTheme, Tada Burke
  * @version   0.0.1 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
+ * @see       https://github.com/mixatheme/wp-wireframe-plugin
  *
  * WPWFP is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -48,36 +49,36 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\WPWFP\Hooks' ) ) :
 	/**
-	 * Hooks is a WordPress class for hooking actions & filters.
+	 * Hooks class for actions & filters.
 	 *
 	 * @since 0.0.1 WPWFP
 	 * @see   https://github.com/mixatheme/Wireframe
 	 * @todo  get_filters()
 	 */
-	class Hooks {
+	final class Hooks {
 		/**
-		 * Config.
+		 * Enable or disable hooks.
 		 *
 		 * @since 0.0.1 WPWFP
-		 * @var   array $_actions Description.
+		 * @var   array $_actions Default: false.
 		 */
-		private $_enable_hooks;
+		private $_enabled = false;
 
 		/**
-		 * Actions.
+		 * Actions to hook.
 		 *
 		 * @since 0.0.1 WPWFP
-		 * @var   array $_actions Description.
+		 * @var   array $_actions Requires $enabled = true.
 		 */
-		private $_actions;
+		private $_actions = array();
 
 		/**
-		 * Filters.
+		 * Filters to hook.
 		 *
 		 * @since 0.0.1 WPWFP
-		 * @var   array $_filters Description.
+		 * @var   array $_filters Requires $enabled = true.
 		 */
-		private $_filters;
+		private $_filters = array();
 
 		/**
 		 * Constructor runs when this class is instantiated.
@@ -88,9 +89,9 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Hooks' ) ) :
 		public function __construct( $config ) {
 
 			// Config variables.
-			$this->_enable_hooks = $config['enable_hooks'];
-			$this->_actions      = $config['actions'];
-			$this->_filters      = $config['filters'];
+			$this->_enabled = $config['enabled'];
+			$this->_actions = $config['actions'];
+			$this->_filters = $config['filters'];
 		}
 
 		/**
@@ -100,10 +101,18 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Hooks' ) ) :
 		 * @param object $caller The object calling the hooks.
 		 */
 		public function get_actions( $caller ) {
-			if ( true == $this->_enable_hooks && $this->_actions ) {
+
+			// Check if enabled and has actions.
+			if ( $this->_enabled && $this->_actions ) {
+
+				// Loop action to hook.
 				foreach ( $this->_actions as $key => $value ) {
+
+					// Default values.
 					$value['priority'] = 10;
-					$value['args'] = null;
+					$value['args']     = null;
+
+					// Hook.
 					add_action(
 						$value['tag'],
 						array( $caller,$value['function'] ),

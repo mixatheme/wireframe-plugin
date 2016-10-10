@@ -1,16 +1,17 @@
 <?php
 /**
- * Plugin base class for WPWFP.
+ * Plugin is a WP Wireframe Suite class packaged with WPWFP.
  *
  * PHP version 5.6.0
  *
  * @package   WPWFP
- * @author    Tada Burke
+ * @author    MixaTheme, Tada Burke
  * @version   0.0.1 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
+ * @see       https://github.com/mixatheme/wp-wireframe-plugin
  *
  * WPWFP is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,6 +34,7 @@
  * @since 0.0.1 WPWFP
  */
 namespace MixaTheme\WPWFP;
+use MixaTheme\WPWFP\Module\CPT;
 
 /**
  * No direct access to this file.
@@ -48,7 +50,7 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 	/**
-	 * Plugin is a WordPress class for DI plugin objects.
+	 * Plugin class for DI plugin objects.
 	 *
 	 * @since 0.0.1 WPWFP
 	 * @see   object Theme
@@ -100,7 +102,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Plugin' ) ) :
 		 * @param object $enqueue   Object for styles & scripts.
 		 * @param object $shortcode Object for shortcodes.
 		 */
-		public function __construct( CPT $cpt = null, Admin $admin = null, Enqueue $enqueue = null, Shortcode $shortcode = null ) {
+		public function __construct( $cpt = null, $admin = null, $enqueue = null, $shortcode = null ) {
 
 			// Config variables.
 			$this->_cpt       = $cpt;

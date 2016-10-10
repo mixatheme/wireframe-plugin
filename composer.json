@@ -45,7 +45,8 @@
     },
     "autoload": {
         "psr-4": {
-            "MixaTheme\\WPWFP\\": "wpwfp_dev/classes"
+            "MixaTheme\\WPWFP\\": "wpwfp_dev/classes",
+            "MixaTheme\\WPWFP\\Module\\": "wpwfp_dev/modules"
         }
     }
 }

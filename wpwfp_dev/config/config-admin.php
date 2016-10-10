@@ -5,12 +5,13 @@
  * PHP version 5.6.0
  *
  * @package   WPWFP
- * @author    Tada Burke
+ * @author    MixaTheme, Tada Burke
  * @version   0.0.1 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
+ * @see       https://github.com/mixatheme/wp-wireframe-plugin
  *
  * WPWFP is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,11 +28,35 @@
  */
 
 /**
- * Config: Admin.
+ * Admin configuration defaults.
  *
  * @since 0.0.1 WPWFP
  */
 function wpwfp_config_admin() {
+	/**
+	 * Enable or disable hooks.
+	 *
+	 * @since 0.0.1 WPWFP
+	 * @var   bool $enabled Default: false.
+	 */
+	$enabled = true;
+
+	/**
+	 * Prefix for handles.
+	 *
+	 * @since 0.0.1 WPWFP
+	 * @var   string $prefix Default: WPWFP_TEXTDOMAIN.
+	 */
+	$prefix = WPWFP_TEXTDOMAIN;
+
+	/**
+	 * Defaults.
+	 *
+	 * @since 0.0.1 WPWFP
+	 * @var   array $defaults Module defaults.
+	 */
+	$defaults = array();
+
 	/**
 	 * Top-level Admin pages.
 	 *
@@ -84,18 +109,10 @@ function wpwfp_config_admin() {
 	);
 
 	/**
-	 * Enable Hooks.
+	 * Actions to hook.
 	 *
 	 * @since 0.0.1 WPWFP
-	 * @var   bool $hooks Enable or disable hooks.
-	 */
-	$enable_hooks = true;
-
-	/**
-	 * Actions.
-	 *
-	 * @since 0.0.1 WPWFP
-	 * @var   array $actions Config of actions. Requires $hooks = true.
+	 * @var   array $actions Requires $enabled = true.
 	 */
 	$actions = array(
 		'menu_pages' => array(
@@ -113,10 +130,10 @@ function wpwfp_config_admin() {
 	);
 
 	/**
-	 * Filters.
+	 * Filters to hook.
 	 *
 	 * @since 0.0.1 WPWFP
-	 * @var   array $filters Config of filters. Requires $hooks = true.
+	 * @var   array $filters Requires $enabled = true.
 	 * @todo  WIP.
 	 */
 	$filters = array();
@@ -128,9 +145,11 @@ function wpwfp_config_admin() {
 	 * @return array Config to be passed into an object.
 	 */
 	return array(
+		'enabled'       => $enabled,
+		'prefix'        => $prefix,
+		'defaults'      => $defaults,
 		'menu_pages'    => $menu_pages,
 		'submenu_pages' => $submenu_pages,
-		'enable_hooks'  => $enable_hooks,
 		'actions'       => $actions,
 		'filters'       => $filters,
 	);

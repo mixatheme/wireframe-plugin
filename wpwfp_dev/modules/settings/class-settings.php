@@ -1,6 +1,6 @@
 <?php
 /**
- * Container is a WP Wireframe Suite class packaged with WPWFP.
+ * Settings is a WP Wireframe Suite module packaged with WPWFP.
  *
  * PHP version 5.6.0
  *
@@ -28,12 +28,16 @@
  */
 
 /**
- * Namespaces.
+ * This is an optional WPWFP `Module` class and uses a different namespace scope.
+ * Therefore, you must declare namespace aliases for any dependency object you
+ * need for your modules. Example: `use MixaTheme\WPWFP\Hooks;` will bring the
+ * Hooks object into scope and make it available to your class.
  *
  * @since 5.3.0 PHP
  * @since 0.0.1 WPWFP
  */
-namespace MixaTheme\WPWFP;
+namespace MixaTheme\WPWFP\Module;
+use MixaTheme\WPWFP\Hooks;
 
 /**
  * No direct access to this file.
@@ -47,49 +51,41 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 0.0.1 WPWFP
  */
-if ( ! class_exists( 'MixaTheme\WPWFP\Container' ) ) :
+if ( ! class_exists( 'MixaTheme\WPWFP\Module\Settings' ) ) :
 	/**
-	 * Container is a PHP class for DI containers & Service Locators.
-	 *
-	 * Instantiates a new `service` closure. A getter or setter will run
-	 * determined by the requested service key.
+	 * Settings is a WPWFP class.
 	 *
 	 * @since 0.0.1 WPWFP
 	 * @see   https://github.com/mixatheme/Wireframe
-	 *
-	 * @internal Thanks: Fabien Potencier
 	 */
-	final class Container {
+	class Settings {
 		/**
-		 * Storage array.
+		 * Hooks object.
 		 *
-		 * @since 0.0.1 WPWFP
-		 * @var   array $storage Array of services.
+		 * @access private
+		 * @since  0.0.1 WPWFP
+		 * @var    object $_hooks
 		 */
-		protected $storage = array();
+		private $_hooks;
 
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 0.0.1 WPWFP
-		 * @param string   $service  Service key.
-		 * @param callable $callback Service instance resolver.
+		 * @param array  $config Required array of config variables.
+		 * @param object $hooks  Optionally DI action & filter hooks.
 		 */
-		public function __set( $service, $callback ) {
-			$this->storage[ $service ] = $callback;
+		public function __construct( $config, $hooks = null ) {
+
+			// Config vars.
+			$this->_hooks = $hooks;
+
+			// Init hooks.
+			if ( $this->_hooks ) {
+				$this->_hooks->get_actions( $this );
+			}
 		}
 
-		/**
-		 * Get service from the Storage array.
-		 *
-		 * @since  0.0.1 WPWFP
-		 * @param  string $service Service key.
-		 * @return object $storage Instance closure.
-		 */
-		public function __get( $service ) {
-			return $this->storage[ $service ]();
-		}
-
-	} // Container class.
+	} // Settings class.
 
 endif; // Thanks for using MixaTheme products!

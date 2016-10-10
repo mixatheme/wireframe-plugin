@@ -14,6 +14,7 @@
  * @package   WPWFP
  * @copyright 2016 MixaTheme.
  * @see       https://github.com/mixatheme/Wireframe
+ * @see       https://github.com/mixatheme/wp-wireframe-plugin
  */
 
 /**
@@ -27,8 +28,8 @@ use MixaTheme\WPWFP\Plugin;
 use MixaTheme\WPWFP\Hooks;
 use MixaTheme\WPWFP\Admin;
 use MixaTheme\WPWFP\Enqueue;
-use MixaTheme\WPWFP\CPT;
-use MixaTheme\WPWFP\Shortcode;
+use MixaTheme\WPWFP\Module\CPT;
+use MixaTheme\WPWFP\Modle\Shortcode;
 
 /**
  * No direct access to this file.
@@ -188,19 +189,27 @@ $wpwfp_container->plugin = function () {
 	require_once WPWFP_DIR . 'wpwfp_dev/config/config-shortcode.php';
 
 	/**
-	 * Instantiates plugin object with dependency objects passed in. This is a
+	 * Instantiates Plugin object with dependency objects passed in. This is a
 	 * fun example showcasing OOP with DI and reusable configuration functions
 	 * passed through objects.
 	 *
 	 * @since 0.0.1 WPWFP
-	 * @param object Admin
-	 * @param object Hooks
+	 * @param object CPT
+	 * @param object Amin
 	 * @param object Enqueue
 	 */
 	return new Plugin(
-		new CPT( wpwfp_config_cpt(), new Hooks( wpwfp_config_cpt() ) ),
-		new Admin( wpwfp_config_admin(), new Hooks( wpwfp_config_admin() ) ),
-		new Enqueue( wpwfp_config_enqueue() )
+		new CPT(
+			wpwfp_config_cpt(),
+			new Hooks( wpwfp_config_cpt() )
+		),
+		new Admin(
+			wpwfp_config_admin(),
+			new Hooks( wpwfp_config_admin() )
+		),
+		new Enqueue(
+			wpwfp_config_enqueue()
+		)
 	);
 };
 

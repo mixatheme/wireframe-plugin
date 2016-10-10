@@ -1,16 +1,17 @@
 <?php
 /**
- * Admin dependency class for WPWFP.
+ * Admin is a WP Wireframe Suite class packaged with WPWFP.
  *
  * PHP version 5.6.0
  *
  * @package   WPWFP
- * @author    Tada Burke
+ * @author    MixaTheme, Tada Burke
  * @version   0.0.1 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
+ * @see       https://github.com/mixatheme/wp-wireframe-plugin
  *
  * WPWFP is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -48,12 +49,12 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\WPWFP\Admin' ) ) :
 	/**
-	 * Admin is a WordPress class for loading Admin menu pages.
+	 * Admin class for loading Admin menu pages.
 	 *
 	 * @since 0.0.1 WPWFP
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	class Admin {
+	final class Admin {
 		/**
 		 * Top-level Menu pages.
 		 *
@@ -88,14 +89,14 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Admin' ) ) :
 		 * @param array  $config Required array of config variables.
 		 * @param object $hooks  Optionally DI action & filter hooks.
 		 */
-		public function __construct( $config, Hooks $hooks = null ) {
+		public function __construct( $config, $hooks = null ) {
 
 			// Config vars.
 			$this->_menu_pages    = $config['menu_pages'];
 			$this->_submenu_pages = $config['submenu_pages'];
 			$this->_hooks         = $hooks;
 
-			// Init hooks.
+			// Init any hooks you declared in your object config files.
 			if ( $this->_hooks ) {
 				$this->_hooks->get_actions( $this );
 			}

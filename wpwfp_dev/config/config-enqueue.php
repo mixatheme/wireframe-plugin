@@ -5,12 +5,13 @@
  * PHP version 5.6.0
  *
  * @package   WPWFP
- * @author    Tada Burke
+ * @author    MixaTheme, Tada Burke
  * @version   0.0.1 WPWFP
- * @copyright 2016 MixaTheme. All rights reserved.
+ * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
+ * @see       https://github.com/mixatheme/wp-wireframe-plugin
  *
  * WPWFP is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,55 +28,90 @@
  */
 
 /**
- * Config: Enqueue.
+ * Enqueue configuration defaults.
  *
  * @since 0.0.1 WPWFP
  */
 function wpwfp_config_enqueue() {
 	/**
-	 * Enqueue: Prefix for handles.
+	 * Enable or disable hooks.
 	 *
 	 * @since 0.0.1 WPWFP
-	 * @var   string $prefix Prefix for handles, etc. Default: WIREFRAMETHEME_TEXTDOMAIN.
+	 * @var   bool $enabled Default: false.
+	 */
+	$enabled = false;
+
+	/**
+	 * Prefix for handles.
+	 *
+	 * @since 0.0.1 WPWFP
+	 * @var   string $prefix Default: WPWFP_TEXTDOMAIN.
 	 */
 	$prefix = WPWFP_TEXTDOMAIN;
 
 	/**
-	 * Enqueue: Load media modal. This is primarily Plugin territory, but
-	 * it's only here for completeness. Most likely should remain false.
+	 * Defaults.
 	 *
 	 * @since 0.0.1 WPWFP
-	 * @var   bool $media True loads wp_enqueue_media(). Default: false.
-	 * @todo  Should we contextually enqueue media modal per config array?
+	 * @var   array $defaults Module defaults.
 	 */
-	$media = false;
+	$defaults = array();
 
 	/**
-	 * Enqueue: Stylesheets to load.
+	 * Styles.
 	 *
 	 * @since 0.0.1 WPWFP
-	 * @var   array $styles Array of stylesheets to enqueue.
+	 * @var   array $styles Module styles.
 	 */
 	$styles = array();
 
 	/**
-	 * Enqueue: Scripts to load.
+	 * Scripts.
 	 *
 	 * @since 0.0.1 WPWFP
-	 * @var   array $scripts Array of scripts to enqueue.
+	 * @var   array $scripts Module scripts.
 	 */
 	$scripts = array();
+
+	/**
+	 * Media.
+	 *
+	 * @since 0.0.1 WPWFP
+	 * @var   array $media Module media.
+	 */
+	$media = false;
+
+	/**
+	 * Actions to hook.
+	 *
+	 * @since 0.0.1 WPWFP
+	 * @var   array $actions Requires $enabled = true.
+	 */
+	$actions = array();
+
+	/**
+	 * Filters to hook.
+	 *
+	 * @since 0.0.1 WPWFP
+	 * @var   array $filters Requires $enabled = true.
+	 * @todo  WIP.
+	 */
+	$filters = array();
 
 	/**
 	 * Returns an array with config values.
 	 *
 	 * @since  0.0.1 WPWFP
-	 * @return array
+	 * @return array Config to be passed into an object.
 	 */
 	return array(
+		'enabled'  => $enabled,
 		'prefix'   => $prefix,
+		'defaults' => $defaults,
 		'styles'   => $styles,
 		'scripts'  => $scripts,
 		'media'    => $media,
+		'actions'  => $actions,
+		'filters'  => $filters,
 	);
 }

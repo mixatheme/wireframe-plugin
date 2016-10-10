@@ -5,12 +5,13 @@
  * PHP version 5.6.0
  *
  * @package   WPWFP
- * @author    Tada Burke
+ * @author    MixaTheme, Tada Burke
  * @version   0.0.1 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
+ * @see       https://github.com/mixatheme/wp-wireframe-plugin
  *
  * WPWFP is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,11 +28,27 @@
  */
 
 /**
- * Config: CPT.
+ * CPT configuration defaults.
  *
  * @since 0.0.1 WPWFP
  */
 function wpwfp_config_cpt() {
+	/**
+	 * Enable or disable hooks.
+	 *
+	 * @since 0.0.1 WPWFP
+	 * @var   bool $enabled Default: false.
+	 */
+	$enabled = false;
+
+	/**
+	 * Prefix for handles.
+	 *
+	 * @since 0.0.1 WPWFP
+	 * @var   string $prefix Default: WPWFP_TEXTDOMAIN.
+	 */
+	$prefix = WPWFP_TEXTDOMAIN;
+
 	/**
 	 * Labels.
 	 *
@@ -69,12 +86,12 @@ function wpwfp_config_cpt() {
 	);
 
 	/**
-	 * Arguments.
+	 * Defaults.
 	 *
 	 * @since 0.0.1 WPWFP
-	 * @var   array $args
+	 * @var   array $defaults Module defaults.
 	 */
-	 $args = array(
+	 $defaults = array(
 		'example_cpt_1' => array(
 			'label'               => __( 'WPWFP CPT', 'wp-wireframe-plugin' ),
 			'description'         => __( 'WPWFP CPT Description', 'wp-wireframe-plugin' ),
@@ -97,18 +114,10 @@ function wpwfp_config_cpt() {
 	);
 
 	/**
-	 * Enable Hooks.
+	 * Actions to hook.
 	 *
 	 * @since 0.0.1 WPWFP
-	 * @var   bool $hooks Enable or disable hooks.
-	 */
-	$enable_hooks = true;
-
-	/**
-	 * Actions.
-	 *
-	 * @since 0.0.1 WPWFP
-	 * @var   array $actions Config of actions. Requires $hooks = true.
+	 * @var   array $actions Requires $enabled = true.
 	 */
 	$actions = array(
 		'example_cpt_1' => array(
@@ -120,10 +129,10 @@ function wpwfp_config_cpt() {
 	);
 
 	/**
-	 * Filters.
+	 * Filters to hook.
 	 *
 	 * @since 0.0.1 WPWFP
-	 * @var   array $filters Config of filters. Requires $hooks = true.
+	 * @var   array $filters Requires $enabled = true.
 	 * @todo  WIP.
 	 */
 	$filters = array();
@@ -135,10 +144,11 @@ function wpwfp_config_cpt() {
 	 * @return array Config to be passed into an object.
 	 */
 	return array(
-		'args'         => $args,
-		'enable_hooks' => $enable_hooks,
-		'actions'      => $actions,
-		'filters'      => $filters,
+		'enabled'  => $enabled,
+		'prefix'   => $prefix,
+		'defaults' => $defaults,
+		'actions'  => $actions,
+		'filters'  => $filters,
 	);
 
 } // Thanks for using MixaTheme products!

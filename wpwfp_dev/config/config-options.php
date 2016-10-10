@@ -1,6 +1,6 @@
 <?php
 /**
- * Shortcode config file for WPWFT.
+ * Options config file for WPWFT.
  *
  * PHP version 5.6.0
  *
@@ -28,11 +28,11 @@
  */
 
 /**
- * Shortcode configuration defaults.
+ * Options configuration defaults.
  *
  * @since 0.0.1 WPWFP
  */
-function wpwfp_config_shortcode() {
+function wpwfp_config_options() {
 	/**
 	 * Enable or disable hooks.
 	 *

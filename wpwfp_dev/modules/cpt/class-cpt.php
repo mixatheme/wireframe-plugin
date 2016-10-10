@@ -1,16 +1,17 @@
 <?php
 /**
- * CPT dependency class for WPWFP.
+ * CPT is a WP Wireframe Suite module packaged with WPWFP.
  *
  * PHP version 5.6.0
  *
  * @package   WPWFP
- * @author    Tada Burke
+ * @author    MixaTheme, Tada Burke
  * @version   0.0.1 WPWFP
  * @copyright 2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
+ * @see       https://github.com/mixatheme/wp-wireframe-plugin
  *
  * WPWFP is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,12 +28,16 @@
  */
 
 /**
- * Namespaces.
+ * This is an optional WPWFP `Module` class and uses a different namespace scope.
+ * Therefore, you must declare namespace aliases for any dependency object you
+ * need for your modules. Example: `use MixaTheme\WPWFP\Hooks;` will bring the
+ * Hooks object into scope and make it available to your class.
  *
  * @since 5.3.0 PHP
  * @since 0.0.1 WPWFP
  */
-namespace MixaTheme\WPWFP;
+namespace MixaTheme\WPWFP\Module;
+use MixaTheme\WPWFP\Hooks;
 
 /**
  * No direct access to this file.
@@ -79,7 +84,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\CPT' ) ) :
 		 * @param array  $config Required array of config variables.
 		 * @param object $hooks  Optionally DI action & filter hooks.
 		 */
-		public function __construct( $config, Hooks $hooks = null ) {
+		public function __construct( $config, $hooks = null ) {
 
 			// Config vars.
 			$this->_config = $config;
@@ -94,11 +99,11 @@ if ( ! class_exists( 'MixaTheme\WPWFP\CPT' ) ) :
 		/**
 		 * Get CPT.
 		 *
-		 * @since  0.0.1 WPWFP
+		 * @since 0.0.1 WPWFP
 		 */
 		public function get_cpt() {
-			if ( $this->_config['args'] ) {
-				foreach ( $this->_config['args'] as $key => $value ) {
+			if ( $this->_config['defaults'] ) {
+				foreach ( $this->_config['defaults'] as $key => $value ) {
 					register_post_type( $key, $value );
 				}
 			}

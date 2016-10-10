@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname(dirname($vendorDir));
 
 return array(
+    'MixaTheme\\WPWFP\\Module\\' => array($baseDir . '/wpwfp_dev/modules'),
     'MixaTheme\\WPWFP\\' => array($baseDir . '/wpwfp_dev/classes'),
 );

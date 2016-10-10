@@ -1,16 +1,17 @@
 <?php
 /**
- * Enqueue dependency class for WPWFP.
+ * Enqueue is a WP Wireframe Suite class packaged with WPWFP.
  *
  * PHP version 5.6.0
  *
  * @package   WPWFP
- * @author    Tada Burke
- * @version   0.0.1 WPWFP
- * @copyright 2016 MixaTheme
+ * @author    MixaTheme, Tada Burke
+ * @version   1.0.0 WPWFP
+ * @copyright 2012-2016 MixaTheme
  * @license   GPL-3.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
+ * @see       https://github.com/mixatheme/wp-wireframe-plugin
  *
  * WPWFP is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,96 +31,96 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 namespace MixaTheme\WPWFP;
 
 /**
  * No direct access to this file.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 0.0.1 WPWFP
+ * @since 1.0.0 WPWFP
  */
 if ( ! class_exists( 'MixaTheme\WPWFP\Enqueue' ) ) :
 	/**
-	 * Enqueue is a WordPress class for loading styles & scripts.
+	 * Enqueue class for loading styles & scripts
 	 *
-	 * @since 0.0.1 WPWFP
+	 * @since 1.0.0 WPWFP
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	class Enqueue {
 		/**
 		 * Version.
 		 *
-		 * @since 0.0.1 WPWFP
+		 * @since 1.0.0 WPWFP
 		 */
-		const VERS = '1.0.0';
+		const VERS = WPWFP_VERS;
 
 		/**
-		 * Prefix for enqueue handles.
+		 * Config.
 		 *
 		 * @access private
-		 * @since  0.0.1 WPWFP
-		 * @var    string $_prefix
+		 * @since  1.0.0 WPWFP
+		 * @var    array $_config
 		 */
-		private $_prefix = 'wireframe';
-
-		/**
-		 * Enqueue media modal.
-		 *
-		 * @access private
-		 * @since  0.0.1 WPWFP
-		 * @var    bool $_media
-		 */
-		private $_media = false;
-
-		/**
-		 * CSS files to enqueue.
-		 *
-		 * @access private
-		 * @since  0.0.1 WPWFP
-		 * @var    array $_styles
-		 */
-		private $_styles = array();
-
-		/**
-		 * JS files to enqueue.
-		 *
-		 * @access private
-		 * @since  0.0.1 WPWFP
-		 * @var    array $_scripts
-		 */
-		private $_scripts = array();
+		private $_config = array();
 
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
-		 * @since 0.0.1 WPWFP
-		 * @param array $config Config array.
+		 * @since 1.0.0 WPWFP
+		 * @param array  $config Required array of config variables.
+		 * @param object $hooks  Optionally DI action & filter hooks.
 		 */
-		public function __construct( $config ) {
+		public function __construct( $config, $hooks = null ) {
 
 			// Config variables.
-			$this->_prefix  = $config['prefix'];
-			$this->_styles  = $config['styles'];
-			$this->_scripts = $config['scripts'];
-			$this->_media   = $config['media'];
+			$this->_config = $config;
+			$this->_hooks  = $hooks;
+
+			// Init any hooks declared in in an object config file.
+			if ( $this->_hooks ) {
+				$this->_hooks->get_actions( $this );
+			}
+		}
+
+		/**
+		 * Enqueue the main style.css stylesheet.
+		 *
+		 * @since 1.0.0 WPWFP
+		 */
+		public function stylecss() {
+			if ( $this->_config['stylecss'] && $this->_config['prefix'] ) {
+				$config = apply_filters( $this->_config['prefix'] . __FUNCTION__, get_stylesheet_uri() );
+				wp_enqueue_style( $this->_config['prefix'] . '_style', $config );
+			}
+		}
+
+		/**
+		 * Enqueue the main Comment Reply script.
+		 *
+		 * @since 1.0.0 WPWFP
+		 */
+		public function comments() {
+			if ( $this->_config['comments'] && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+				wp_enqueue_script( 'comment-reply' );
+			}
 		}
 
 		/**
 		 * Enqueue the Media modal script.
 		 *
-		 * @since 0.0.1 WPWFP
+		 * @since 1.0.0 WPWFP
 		 * @todo  Should this be enqueued contextually somehow?
 		 */
 		public function media() {
-			if ( $this->_media ) {
+			if ( $this->_config['media'] ) {
 				wp_enqueue_media();
 			}
 		}
@@ -127,8 +128,8 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Enqueue' ) ) :
 		/**
 		 * Enqueue the custom CSS files passed via functions.php.
 		 *
-		 * @since 0.0.1 WPWFP
-		 * @see   wireframe_version() Optional WP_DEBUG helper.
+		 * @since 1.0.0 WPWFP
+		 * @see   wpwft_version() Optional WP_DEBUG helper.
 		 */
 		public function styles() {
 
@@ -138,34 +139,33 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Enqueue' ) ) :
 			}
 
 			// Loop CSS files.
-			foreach ( $this->get_styles() as $key => $value ) :
+			foreach ( $this->get_styles() as $key => $value ) {
 
 				// Set handle.
-				$handle = $this->_prefix . '_' . $key;
+				$handle = $this->_config['prefix'] . '_' . $key;
 
 				// Register.
 				wp_register_style(
 					$handle,
 					trailingslashit( $value['path'] ) . $value['file'] . '.css',
 					$value['deps'],
-					wireframe_version( self::VERS ),
+					self::VERS,
 					$value['media']
 				);
 
 				// Enqueue.
 				wp_enqueue_style( $handle );
-
-			endforeach;
+			}
 		}
 
 		/**
 		 * Enqueue the custom JS files passed via functions.php.
 		 *
-		 * @since 0.0.1 WPWFP
-		 * @param array $data The data to localize.
-		 * @see   wireframe_version() Optional WP_DEBUG helper.
+		 * @since 1.0.0 WPWFP
+		 * @see   wpwft_version() Optional WP_DEBUG helper.
+		 * @see   https://codex.wordpress.org/Function_Reference/wp_localize_script
 		 */
-		public function scripts( $data = null ) {
+		public function scripts() {
 
 			// No scripts found.
 			if ( ! $this->get_scripts() ) {
@@ -173,7 +173,7 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Enqueue' ) ) :
 			}
 
 			// Loop JS files.
-			foreach ( $this->get_scripts() as $key => $value ) :
+			foreach ( $this->get_scripts() as $key => $value ) {
 				/**
 				 * Set script handle and convert dashes to underscores.
 				 *
@@ -181,16 +181,16 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Enqueue' ) ) :
 				 * use underscores/underlines. Dashes/hyphens are not allowed
 				 * because JavaScript objects cannot contain dashes/hyphens.
 				 *
-				 * @see wpwfp.js
+				 * @see theme.js
 				 */
-				$handle = str_replace( '-', '_', $this->_prefix . '_' . $key );
+				$handle = str_replace( '-', '_', $this->_config['prefix'] . '_' . $key );
 
 				// Register.
 				wp_register_script(
 					$handle,
 					trailingslashit( $value['path'] ) . $value['file'] . '.js',
 					$value['deps'],
-					wireframe_version( self::VERS ),
+					self::VERS,
 					$value['footer']
 				);
 
@@ -202,122 +202,120 @@ if ( ! class_exists( 'MixaTheme\WPWFP\Enqueue' ) ) :
 					$data = $value['localize'];
 					wp_localize_script( $handle, $handle, $data );
 				}
-
-			endforeach;
+			}
 		}
 
 		/**
-		 * Gets boolean for theme's default `style.css` stylesheet.
+		 * Get stylecss style.css.
 		 *
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @return bool $_stylecss
 		 */
 		public function get_stylecss() {
-			if ( $this->_stylecss ) {
-				$config = apply_filters( $this->_prefix . '_enqueue_stylecss', $this->_stylecss );
-				return $config;
+			if ( $this->_config['stylecss'] ) {
+				$filter = apply_filters( $this->_config['prefix'] . '_enqueue_stylecss', $this->_config['stylecss'] );
+				return $filter;
 			}
 		}
 
 		/**
-		 * Gets boolean for WordPress default `comment-reply` script.
+		 * Get comment-reply script.
 		 *
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @return bool $_comments
 		 */
 		public function get_comments() {
-			if ( $this->_comments ) {
-				$config = apply_filters( $this->_prefix . '_enqueue_comments', $this->_comments );
-				return $config;
+			if ( $this->_config['comments'] ) {
+				$filter = apply_filters( $this->_config['prefix'] . '_enqueue_comments', $this->_config['comments'] );
+				return $filter;
 			}
 		}
 
 		/**
-		 * Gets boolean for WordPress built-in `media modal` script.
+		 * Get Media.
 		 *
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @return bool $_media
 		 */
 		public function get_media() {
-			if ( $this->_media ) {
-				$config = apply_filters( $this->_prefix . '_enqueue_media', $this->_media );
-				return $config;
+			if ( $this->_config['media'] ) {
+				$filter = apply_filters( $this->_config['prefix'] . '_enqueue_media', $this->_config['media'] );
+				return $filter;
 			}
 		}
 
 		/**
 		 * Get CSS path.
 		 *
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @return string $_css_path
 		 */
 		public function get_css_path() {
-			if ( $this->_css_path ) {
-				return $this->_css_path;
+			if ( $this->_config['css_path'] ) {
+				return $this->_config['css_path'];
 			}
 		}
 
 		/**
 		 * Get JS path.
 		 *
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @return string $_css_path
 		 */
 		public function get_js_path() {
-			if ( $this->_js_path ) {
-				return $this->_js_path;
+			if ( $this->_config['js_path'] ) {
+				return $this->_config['js_path'];
 			}
 		}
 
 		/**
 		 * Get Prefix.
 		 *
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @return string $_prefix
 		 */
 		public function get_prefix() {
-			if ( $this->_prefix ) {
-				return $this->_prefix;
+			if ( $this->_config['prefix'] ) {
+				return $this->_config['prefix'];
 			}
 		}
 
 		/**
 		 * Get Styles.
 		 *
-		 * @since  0.0.1 WPWFP
-		 * @return array $_styles
+		 * @since  1.0.0 WPWFP
+		 * @return string $_styles
 		 */
 		public function get_styles() {
-			if ( $this->_styles ) {
-				return $this->_styles;
+			if ( $this->_config['styles'] ) {
+				return $this->_config['styles'];
 			}
 		}
 
 		/**
 		 * Get Scripts.
 		 *
-		 * @since  0.0.1 WPWFP
-		 * @return array $_scripts
+		 * @since  1.0.0 WPWFP
+		 * @return string $_scripts
 		 */
 		public function get_scripts() {
-			if ( $this->_scripts ) {
-				return $this->_scripts;
+			if ( $this->_config['scripts'] ) {
+				return $this->_config['scripts'];
 			}
 		}
 
 		/**
 		 * Get Localize.
 		 *
-		 * @since  0.0.1 WPWFP
+		 * @since  1.0.0 WPWFP
 		 * @return string $_localize
 		 */
 		public function get_localize() {
-			if ( $this->_localize ) {
-				$config = apply_filters( $this->_prefix . '_enqueue_localize', $this->_localize );
-				return $config;
+			if ( $this->_config['localize'] ) {
+				$filter = apply_filters( $this->_config['prefix'] . '_enqueue_localize', $this->_config['localize'] );
+				return $filter;
 			}
 		}
-
-	} // Enqueue class.
+	}
 
 endif; // Thanks for using MixaTheme products!
