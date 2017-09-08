@@ -1,0 +1,51 @@
+{
+    "name": "Wireframe_Plugin",
+    "description": "Wireframe Plugin is an OOP WordPress plugin boilerplate. Wireframe Plugin enables WordPress Developers to rapidly wire GPL and WPCS compliant plugins for professional client projects or for selling premium plugins in any marketplace. Wireframe Plugin is also packaged with the Wireframe Suite for WordPress by MixaTheme.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0+",
+    "keywords": [
+        "wordpress",
+        "oop",
+        "plugin",
+        "wireframe",
+        "starter",
+        "boilerplate",
+        "mobile",
+        "GPL"
+    ],
+    "homepage": "https://github.com/mixatheme/Wireframe",
+    "authors": [
+        {
+            "name": "Tada Burke",
+            "email": "tadaburke@users.noreply.github.com",
+            "homepage": "https://github.com/mixatheme",
+            "role": "Developer"
+        },
+        {
+            "name": "MixaTheme",
+            "email": "mixatheme@users.noreply.github.com",
+            "homepage": "https://mixatheme.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Neurobotic",
+            "email": "neurobotic@users.noreply.github.com",
+            "homepage": "https://neurobotic.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/mixatheme/wireframe-plugin/issues",
+        "source": "https://github.com/mixatheme/wireframe-plugin",
+        "docs": "https://github.com/mixatheme/wireframe-plugin/wiki"
+    },
+    "config": {
+        "vendor-dir": "wireframe_dev/vendor",
+        "archive-format": "zip"
+    },
+    "autoload": {
+        "psr-0": {
+            "MixaTheme\\Wireframe\\Plugin\\": "wireframe_dev/wireframe"
+        }
+    }
+}
