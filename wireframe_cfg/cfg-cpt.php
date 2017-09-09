@@ -163,6 +163,7 @@ function wireframe_plugin_cfg_cpt() {
 			'hierarchical'        => false,
 			'public'              => true,
 			'show_ui'             => true,
+			'show_in_rest'        => false,
 			'show_in_menu'        => true,
 			'menu_position'       => 999,
 			'show_in_admin_bar'   => true,
