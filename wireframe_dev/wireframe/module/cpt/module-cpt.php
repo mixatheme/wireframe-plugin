@@ -55,33 +55,45 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_CPT' ) ) :
 	 */
 	class Module_CPT extends Core_Module_Abstract implements Module_CPT_Interface {
 		/**
-		 * Defaults.
+		 * Defaults array
 		 *
 		 * @access private
 		 * @since  0.1.0 Wireframe
 		 * @since  0.1.0 Wireframe_Plugin
-		 * @var    array $_defaults
+		 * @var    array $_defaults Config array to register default custom post types.
 		 */
 		private $_defaults;
+
+		/**
+		 * Unregister array.
+		 *
+		 * @access private
+		 * @since  0.1.0 Wireframe
+		 * @since  0.1.0 Wireframe_Plugin
+		 * @var    array $_unregister Config array to unregister custom post types.
+		 */
+		private $_unregister;
 
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 0.1.0 Wireframe
 		 * @since 0.1.0 Wireframe_Plugin
-		 * @param array $config Required array of config variables.
+		 * @param array $config Required array of config arguments.
+		 * @see   cfg-cpt.php The config file for this module.
 		 */
 		public function __construct( $config ) {
 
 			// Declare custom properties required for this class.
-			$this->_defaults = $config['defaults'];
+			$this->_defaults   = $config['defaults'];
+			$this->_unregister = $config['unregister'];
 
 			// Get parent Constructor.
 			parent::__construct( $config );
 		}
 
 		/**
-		 * Get Defaults.
+		 * Get array of default custom post types to register.
 		 *
 		 * @since 0.1.0 Wireframe
 		 * @since 0.1.0 Wireframe_Plugin
@@ -93,17 +105,48 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_CPT' ) ) :
 		}
 
 		/**
-		 * Register custom post type.
+		 * Get array of custom post types to unregister.
+		 *
+		 * @since 0.1.0 Wireframe
+		 * @since 0.1.0 Wireframe_Plugin
+		 */
+		public function get_unregister() {
+			if ( isset( $this->_unregister ) ) {
+				return $this->_unregister;
+			}
+		}
+
+		/**
+		 * Register custom post type(s).
 		 *
 		 * @since 2.9.0 WordPress
 		 * @since 0.1.0 Wireframe
 		 * @since 0.1.0 Wireframe_Plugin
-		 * @see   https://codex.wordpress.org/Function_Reference/register_post_type
+		 * @see   https://developer.wordpress.org/reference/functions/register_post_type/
+		 *
+		 * @todo Maybe use wp_parse_args().
+		 * @todo Maybe use apply_filters().
 		 */
 		public function register() {
-			if ( isset( $this->_defaults ) ) {
-				foreach ( $this->_defaults as $post_type => $args ) {
+			if ( $this->get_defaults() ) {
+				foreach ( $this->get_defaults() as $post_type => $args ) {
 					register_post_type( $post_type, $args );
+				}
+			}
+		}
+
+		/**
+		 * Unregister custom post type(s).
+		 *
+		 * @since 4.5.0 WordPress
+		 * @since 0.1.0 Wireframe
+		 * @since 0.1.0 Wireframe_Plugin
+		 * @see   https://developer.wordpress.org/reference/functions/unregister_post_type/
+		 */
+		public function unregister() {
+			if ( $this->get_unregister() ) {
+				foreach ( $this->get_unregister() as $post_type ) {
+					unregister_post_type( $post_type );
 				}
 			}
 		}
