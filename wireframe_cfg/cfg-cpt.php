@@ -177,6 +177,15 @@ function wireframe_plugin_cfg_cpt() {
 	);
 
 	/**
+	 * Defaults.
+	 *
+	 * @since 0.1.0 Wireframe
+	 * @since 0.1.0 Wireframe_Plugin
+	 * @var   array $unregister Unregister custom post types.
+	 */
+	$unregister = array();
+
+	/**
 	 * Option #1: Return (array) of config data for passing into objects.
 	 *
 	 * Option #2: Cast array as an (object) and use object/property sytnax
@@ -193,11 +202,12 @@ function wireframe_plugin_cfg_cpt() {
 	 * @return array|object
 	 */
 	return array(
-		'wired'    => $wired,
-		'prefix'   => $prefix,
-		'actions'  => $actions,
-		'filters'  => $filters,
-		'defaults' => $defaults,
+		'wired'      => $wired,
+		'prefix'     => $prefix,
+		'actions'    => $actions,
+		'filters'    => $filters,
+		'defaults'   => $defaults,
+		'unregister' => $unregister,
 	);
 
 } // Thanks for using MixaTheme products!
